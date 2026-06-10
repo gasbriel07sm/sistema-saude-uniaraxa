@@ -1,0 +1,14 @@
+C:\Users\gusta\OneDrive\Desktop\Códigos\SaudeEsteban\SaudeEsteban\obj\Debug\net10.0\SaudeEsteban.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gusta\OneDrive\Desktop\Códigos\SaudeEsteban\SaudeEsteban\obj\Debug\net10.0\SaudeEsteban.AssemblyInfoInputs.cache
+C:\Users\gusta\OneDrive\Desktop\Códigos\SaudeEsteban\SaudeEsteban\obj\Debug\net10.0\SaudeEsteban.AssemblyInfo.cs
+C:\Users\gusta\OneDrive\Desktop\Códigos\SaudeEsteban\SaudeEsteban\obj\Debug\net10.0\SaudeEsteban.csproj.CoreCompileInputs.cache
+C:\Users\gusta\OneDrive\Desktop\Códigos\SaudeEsteban\SaudeEsteban\bin\Debug\net10.0\SaudeEsteban.exe
+C:\Users\gusta\OneDrive\Desktop\Códigos\SaudeEsteban\SaudeEsteban\bin\Debug\net10.0\SaudeEsteban.deps.json
+C:\Users\gusta\OneDrive\Desktop\Códigos\SaudeEsteban\SaudeEsteban\bin\Debug\net10.0\SaudeEsteban.runtimeconfig.json
+C:\Users\gusta\OneDrive\Desktop\Códigos\SaudeEsteban\SaudeEsteban\bin\Debug\net10.0\SaudeEsteban.dll
+C:\Users\gusta\OneDrive\Desktop\Códigos\SaudeEsteban\SaudeEsteban\bin\Debug\net10.0\SaudeEsteban.pdb
+C:\Users\gusta\OneDrive\Desktop\Códigos\SaudeEsteban\SaudeEsteban\obj\Debug\net10.0\SaudeEsteban.dll
+C:\Users\gusta\OneDrive\Desktop\Códigos\SaudeEsteban\SaudeEsteban\obj\Debug\net10.0\refint\SaudeEsteban.dll
+C:\Users\gusta\OneDrive\Desktop\Códigos\SaudeEsteban\SaudeEsteban\obj\Debug\net10.0\SaudeEsteban.pdb
+C:\Users\gusta\OneDrive\Desktop\Códigos\SaudeEsteban\SaudeEsteban\obj\Debug\net10.0\SaudeEsteban.genruntimeconfig.cache
+C:\Users\gusta\OneDrive\Desktop\Códigos\SaudeEsteban\SaudeEsteban\obj\Debug\net10.0\ref\SaudeEsteban.dll
