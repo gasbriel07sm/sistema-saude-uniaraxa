@@ -1,4 +1,3 @@
-
 public static class Pacientes
 {
     public static void Menu()
@@ -14,6 +13,7 @@ public static class Pacientes
             Console.WriteLine("  [2] Listar Todos os Pacientes");
             Console.WriteLine("  [3] Buscar Paciente por CPF");
             Console.WriteLine("  [4] Remover Paciente");
+            Console.WriteLine("  [5] Ordenar pacientes por ordem Alfabética");
             Console.WriteLine("  [0] Voltar ao Menu Principal");
             UI.ExibirRodape();
             opcao = UI.LerInteiro("Opcao");
@@ -24,6 +24,7 @@ public static class Pacientes
                 case 2: Listar(); break;
                 case 3: BuscarPorCpf(); break;
                 case 4: Remover(); break;
+                case 5: OrdenarPorNome(); break;
                 case 0: break;
                 default: UI.MensagemAviso("Opcao invalida!"); break;
             }
@@ -188,5 +189,33 @@ public static class Pacientes
                 return i;
         }
         return -1;
+    }
+    public static void OrdenarPorNome()
+    {
+        for (int i = 0; i < Dados.TotalPacientes - 1; i++)
+        {
+            for (int j = 0; j < Dados.TotalPacientes - i - 1; j++)
+            {
+                if (string.Compare(
+                        Dados.PacNomes[j],
+                        Dados.PacNomes[j + 1],
+                        true) > 0)
+                {
+                    string tempNome = Dados.PacNomes[j];
+                    Dados.PacNomes[j] = Dados.PacNomes[j + 1];
+                    Dados.PacNomes[j + 1] = tempNome;
+
+                    string tempCpf = Dados.PacCpfs[j];
+                    Dados.PacCpfs[j] = Dados.PacCpfs[j + 1];
+                    Dados.PacCpfs[j + 1] = tempCpf;
+
+                    int tempIdade = Dados.PacIdades[j];
+                    Dados.PacIdades[j] = Dados.PacIdades[j + 1];
+                    Dados.PacIdades[j + 1] = tempIdade;
+                }
+            }
+        }
+        Console.WriteLine("\nPacientes ordenados por nome com sucesso!\n");
+        Listar();
     }
 }

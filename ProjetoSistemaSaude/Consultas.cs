@@ -15,6 +15,7 @@ public static class Consultas
             Console.WriteLine("  [3] Buscar Consultas por CPF do Paciente");
             Console.WriteLine("  [4] Buscar Consultas por Medico");
             Console.WriteLine("  [5] Buscar Consultas por Data");
+            Console.WriteLine("  [6] Ordenar consultas por data e horario");
             Console.WriteLine("  [0] Voltar ao Menu Principal");
             UI.ExibirRodape();
             opcao = UI.LerInteiro("Opcao");
@@ -26,6 +27,7 @@ public static class Consultas
                 case 3: BuscarPorCpf(); break;
                 case 4: BuscarPorMedico(); break;
                 case 5: BuscarPorData(); break;
+                case 6: OrdenarPorHorario(); break;
                 case 0: break;
                 default: UI.MensagemAviso("Opcao invalida!"); break;
             }
@@ -56,6 +58,7 @@ public static class Consultas
         Console.WriteLine($"\n  Paciente: {Dados.PacNomes[idx]} | Tipo Sang.: {Dados.PacTipoSang[idx]}\n");
 
         string data = UI.LerTexto("Data da consulta (DD/MM/AAAA)");
+        string horario = UI.LerTexto("Horario da consulta (HH:MM)");
         string medico = UI.LerTexto("Nome do medico (ex: Dr. Carlos Silva)");
         string especialid = UI.LerTexto("Especialidade (ex: Cardiologia, Clinico Geral)");
         string diagnostico = UI.LerTexto("Diagnostico / Observacoes");
@@ -64,6 +67,7 @@ public static class Consultas
         Dados.MatrizConsultas[linha, Dados.COL_CPF_PAC] = cpf;
         Dados.MatrizConsultas[linha, Dados.COL_NOME_PAC] = Dados.PacNomes[idx];
         Dados.MatrizConsultas[linha, Dados.COL_DATA] = data;
+        Dados.MatrizConsultas[linha, Dados.COL_HORARIO] = horario;
         Dados.MatrizConsultas[linha, Dados.COL_MEDICO] = medico;
         Dados.MatrizConsultas[linha, Dados.COL_ESPECIALID] = especialid;
         Dados.MatrizConsultas[linha, Dados.COL_DIAGNOSTICO] = diagnostico;
@@ -92,6 +96,7 @@ public static class Consultas
             Console.WriteLine($"    CPF Paciente  : {Dados.MatrizConsultas[i, Dados.COL_CPF_PAC]}");
             Console.WriteLine($"    Nome          : {Dados.MatrizConsultas[i, Dados.COL_NOME_PAC]}");
             Console.WriteLine($"    Data          : {Dados.MatrizConsultas[i, Dados.COL_DATA]}");
+            Console.WriteLine($"    Horario       : {Dados.MatrizConsultas[i, Dados.COL_HORARIO]}");
             Console.WriteLine($"    Medico        : {Dados.MatrizConsultas[i, Dados.COL_MEDICO]}");
             Console.WriteLine($"    Especialidade : {Dados.MatrizConsultas[i, Dados.COL_ESPECIALID]}");
             Console.WriteLine($"    Diagnostico   : {Dados.MatrizConsultas[i, Dados.COL_DIAGNOSTICO]}");
@@ -205,4 +210,40 @@ public static class Consultas
         }
         return contador;
     }
+    public static void OrdenarPorHorario()
+{
+    for (int i = 0; i < Dados.TotalConsultas - 1; i++)
+    {
+        for (int j = 0; j < Dados.TotalConsultas - i - 1; j++)
+        {
+            DateTime consultaAtual =
+                DateTime.Parse(
+                    Dados.MatrizConsultas[j, Dados.COL_DATA] + " " +
+                    Dados.MatrizConsultas[j, Dados.COL_HORARIO]);
+
+            DateTime proximaConsulta =
+                DateTime.Parse(
+                    Dados.MatrizConsultas[j + 1, Dados.COL_DATA] + " " +
+                    Dados.MatrizConsultas[j + 1, Dados.COL_HORARIO]);
+
+            if (consultaAtual > proximaConsulta)
+            {
+                for (int col = 0; col < Dados.COLUNAS_CONSULTA; col++)
+                {
+                    string temp =
+                        Dados.MatrizConsultas[j, col];
+
+                    Dados.MatrizConsultas[j, col] =
+                        Dados.MatrizConsultas[j + 1, col];
+
+                    Dados.MatrizConsultas[j + 1, col] =
+                        temp;
+                }
+            }
+        }
+    }
+    Console.WriteLine("\nConsultas ordenadas por data e horario!");
+    Console.WriteLine("\nPressione qualquer tecla para continuar...");
+    Console.ReadKey();
+}
 }
